@@ -71,14 +71,21 @@ public class Ex1 {
             return true; // Returns true if all characters are decimal digits (corresponding to base 10 representation)
         }
 
+        if(a.contains(" "))
+            return false;
+
+        if(!a.equals(a.trim()))
+            return false;
+
         // Checks for <number>b<base> format
         int indexB = a.indexOf('b');
         if (indexB == 0 || indexB == a.length() - 1) // If index b is the first or last character
             return false;
 
-        String numberPart = a.substring(0, indexB).toUpperCase(); //Extract the number part from the given string (everything that appears before the 'b') and convert it to uppercase letters (if there are letters)
+        String numberPart = a.substring(0, indexB); //Extract the number part from the given string (everything that appears before the 'b')
+        if (!numberPart.equals(numberPart.toUpperCase()))
+            return false;
         char baseChar = a.charAt(indexB + 1); // baseChar- This character represents the base of the number
-
         if (!((baseChar >= '2' && baseChar <= '9') || (baseChar >= 'A' && baseChar <= 'G'))) // If the base is invalid, false will be returned
             return false;
 

@@ -24,14 +24,14 @@ public class Ex1Test {
     @Test
     void isBasisNumberTest() {
         String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
-        for (String s : good) {
+        for (String s :good) {
             boolean ok = Ex1.isNumber(s);
             assertTrue(ok);
         }
         String[] not_good = {"b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2"};
         for (String s : not_good) {
             boolean not_ok = Ex1.isNumber(s);
-            assertFalse(not_ok);
+            assertFalse(not_ok, "Failed");
         }
     }
     @Test
@@ -82,8 +82,8 @@ public class Ex1Test {
     @Test
     void maxIndexTest() {
         // normal case: an array with valid numbers
-        String[] arr1 = {"10b2", "20b10", "15bA"};
-        int index1 = Ex1.maxIndex(arr1); // the maximum is 20 in base 10 (index 1)
+        String[] arr1 = {"10b2", "200", "15bA"};
+        int index1 = Ex1.maxIndex(arr1); // the maximum is 200 in base 10 (index 1)
         assertEquals(index1, 1);
 
         // case with null value
@@ -107,16 +107,16 @@ public class Ex1Test {
         assertEquals(index5, -1);
 
         // Case with negative numbers in different bases
-        String[] arr6 = {"-10b10", "-20b10", "-5b10"};
-        int index6 = Ex1.maxIndex(arr6); // max is -5 (index 2)
-        assertEquals(index6, 2);
+        String[] arr6 = {"10", "20", "5"};
+        int index6 = Ex1.maxIndex(arr6); // max index 1
+        assertEquals(index6, 1);
     }
 
     @Test
     void equalsTest() {
         // normal case: two values are the same
         String n1 = "101b2"; // 5 in base 2
-        String n2 = "5b10";  // 5 in base 10
+        String n2 = "5";  // 5 in base 10
         assertTrue(Ex1.equals(n1, n2)); // The values are equal
 
         // normal case: two values are not the same
@@ -131,10 +131,6 @@ public class Ex1Test {
         // case with null: both values are null
         assertFalse(Ex1.equals(null, null)); // Both values are null
 
-        // case with invalid values
-        String n9 = "abc";
-        String n10 = "5b10";
-        assertFalse(Ex1.equals(n9, n10)); // one of the values is invalid
 
         // case with negative numbers
         String n11 = "-10b10"; // -10 in base 10
@@ -143,7 +139,7 @@ public class Ex1Test {
 
         // case with empty values
         String n13 = "";
-        String n14 = "0b10";
+        String n14 = "0";
         assertFalse(Ex1.equals(n13, n14)); // one of the values is empty
     }
     // Add additional test functions - test as much as you can.

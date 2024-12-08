@@ -5,11 +5,10 @@ public class Ex1Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input1, input2, quit = "quit";
-
         while (true) {
             System.out.println("\nEx1 class solution:");
             System.out.print("Enter a string as number#1 (or \"quit\" to end the program): ");
-            input1 = scanner.nextLine().trim();
+            input1 = scanner.nextLine();
 
             if (input1.equalsIgnoreCase(quit)) {
                 break;
@@ -25,7 +24,7 @@ public class Ex1Main {
             }
 
             System.out.print("Enter a string as number#2 (or \"quit\" to end the program): ");
-            input2 = scanner.nextLine().trim();
+            input2 = scanner.nextLine();
 
             if (input2.equalsIgnoreCase(quit)) {
                 break;
