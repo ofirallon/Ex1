@@ -56,7 +56,27 @@ public class Ex1Test {
 
         // Checking whether the original string matches the re-received string
 
+        assertEquals(base16, base16Again);
+        assertTrue(Ex1.equals(base16, base16Again));
 
+        String negativeNumber = Ex1.int2Number(-10, 2); // negative number
+        assertEquals(negativeNumber, "");
+
+        String invalidBaseLow = Ex1.int2Number(10, 1); // Base too low
+        assertEquals(invalidBaseLow, "");
+
+        String invalidBaseHigh = Ex1.int2Number(10, 17); // Base too high
+        assertEquals(invalidBaseHigh, "");
+
+        String binary = Ex1.int2Number(1, 2);
+        assertEquals(binary, "1b2");
+
+        String hex = Ex1.int2Number(15, 16);
+        assertEquals(hex, "FbG");
+
+        String invalidString = "10Xb2"; // Invalid 'X' character
+        int result = Ex1.number2Int(invalidString);
+        assertEquals(result, -1);
 
     }
     @Test
