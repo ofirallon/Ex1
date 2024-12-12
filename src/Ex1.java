@@ -14,6 +14,7 @@
  */
 
 public class Ex1 {
+
     /**
      * Convert the given number (num) to a decimal representation (as int).
      * It the given number is not in a valid format returns -1.
@@ -48,8 +49,6 @@ public class Ex1 {
         }
         return result;
     }
-
-
 
     /**
      * This static function checks if the given String (g) is in a valid "number" format.
@@ -148,6 +147,7 @@ public class Ex1 {
      * @param n2 second number
      * @return true iff the two numbers have the same values.
      */
+
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
         if (n1 == null || n2 == null) // In the case where one of the 2 (n1/n2) is an empty string
