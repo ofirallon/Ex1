@@ -142,5 +142,4 @@ public class Ex1Test {
         String n14 = "0";
         assertFalse(Ex1.equals(n13, n14)); // one of the values is empty
     }
-    // Add additional test functions - test as much as you can.
 }
