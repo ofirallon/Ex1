@@ -170,7 +170,7 @@ public class Ex1Test {
         assertEquals(invalidConversion, -1);
 
         // Validation Tests
-        String boundaryFormat = "AAbG"; // Invalid format without 'b'
+        String boundaryFormat = "AAbG";
         assertTrue(Ex1.isNumber(boundaryFormat));
 
         String nullString = null; // Null input
