@@ -141,5 +141,43 @@ public class Ex1Test {
         String n13 = "";
         String n14 = "0";
         assertFalse(Ex1.equals(n13, n14)); // one of the values is empty
+
+
+}
+    @Test
+    void additionalTests() {
+        // Base Conversion with Edge Cases
+        String edgeBinary = Ex1.int2Number(0, 2); // Smallest valid binary number
+        assertEquals(edgeBinary, "0b2");
+
+        String largeBase16 = Ex1.int2Number(Integer.MAX_VALUE, 16); // Large positive value
+        assertTrue(largeBase16.matches("[0-9A-F]+bG"));
+
+        int minValue = Ex1.number2Int("0b2"); // Smallest valid input
+        assertEquals(minValue, 0);
+
+        // Validating Base Conversion
+        String validBase16 = "FFbG"; // Hexadecimal value
+        int decimalValue = Ex1.number2Int(validBase16);
+        assertEquals(decimalValue, 255);
+
+        String reconverted = Ex1.int2Number(decimalValue, 16); // Convert back to base 16
+        assertEquals(validBase16, reconverted);
+
+        // Invalid Base Conversion
+        String invalidBaseString = "1Zb3"; // Invalid character 'Z' in base 3
+        int invalidConversion = Ex1.number2Int(invalidBaseString);
+        assertEquals(invalidConversion, -1);
+
+        // Validation Tests
+        String boundaryFormat = "AAbG"; // Invalid format without 'b'
+        assertTrue(Ex1.isNumber(boundaryFormat));
+
+        String nullString = null; // Null input
+        assertFalse(Ex1.isNumber(nullString));
+
+        // Edge Cases for maxIndex
+        String[] mixedArray = {"1b2", "1bA", "1b16"};
+
     }
 }
