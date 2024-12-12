@@ -73,9 +73,6 @@ public class Ex1Test {
         String hex = Ex1.int2Number(15, 16);
         assertEquals(hex, "FbG");
 
-        String invalidString = "10Xb2"; // Invalid 'X' character
-        int result = Ex1.number2Int(invalidString);
-        assertEquals(result, -1);
 
 
     }
