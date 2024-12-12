@@ -3,84 +3,95 @@
 ## Overview
 This project implements a number formatting converter and calculator for numeric strings based on custom formats defined in the range of bases [2-16]. The functionality allows for conversion between bases, validation of custom numeric formats, and basic operations such as equality checks and finding the maximum value from a collection of numbers.
 
-The implementation includes the class Ex1 with several static methods and unit tests in Ex1Test.
+The implementation consists of the `Ex1` class with multiple static methods and corresponding unit tests provided in `Ex1Test`.
 
 ---
 
 ## Features and Functionality
 1. **Base Conversion**:
-    - Parse custom formatted numbers into decimal integers.
-    - Convert decimal integers into custom formatted strings in a given base.
+    - Convert custom-formatted numbers to decimal integers.
+    - Convert decimal integers to custom-formatted strings in a specified base.
 
 2. **Validation**:
-    - Check if a given string is a valid custom numeric format.
+    - Check whether a given string adheres to the custom numeric format.
 
 3. **Equality Check**:
-- Compare two numbers in any valid format to check whether they are equal.
- 
+    - Compare two numbers (in any valid format) to verify if they represent the same value.
+
 4. **Maximum Finder**:
-    - Find the position of the maximum number present in an array of strings containing numeric values.
+    - Identify the index of the maximum value in an array of numeric strings.
 
- ---
- 
+5. **Input Handling**:
+    - Supports both upper and lowercase alphanumeric characters for bases above 10.
+    - Automatically rejects invalid inputs with meaningful feedback via return values.
+
+---
+
 ## Number Format
-- **General Representation**: "number" then 'b' then 'base'
+- **General Representation**: `<number><b><base>`
     - Examples:
-      - 1011b2 for binary, base 2
-      - 123bA for decimal, base 10
-- FFbG (hexadecimal, base 16)
+      - `1011b2` (binary, base 2)
+      - `123bA` (decimal, base 10)
+      - `FFbG` (hexadecimal, base 16)
 
-- **Invalid Representations:**
-    - Partially missing parts (e.g., b2, 123b)
-    - Invalid characters (e.g., GbG, A1b10)
-    - Empty or null strings
+- **Invalid Representations**:
+    - Missing parts (e.g., `b2`, `123b`)
+    - Invalid characters (e.g., `GbG`, `A1b10`)
+    - Null or empty strings
 
 ---
+
 ## Class and Method Descriptions
-### Ex1 Class
+### `Ex1` Class
 #### **Methods:**
-1. number2Int(String num):
-   - This method converts a numeric string into its decimal representation.
-   - In case of an invalid input, it returns -1.
+1. `number2Int(String num)`:
+   - Converts a numeric string to its decimal representation.
+   - Returns `-1` for invalid input.
 
-2. isNumber(String a):
-- Checks if a given string is valid according to the specified format.
-   - It returns true if it's valid, false otherwise.
+2. `isNumber(String a)`:
+   - Validates whether a given string adheres to the defined format.
+   - Returns `true` if valid, `false` otherwise.
 
-3. int2Number(int num, int base):
+3. `int2Number(int num, int base)`:
    - Converts a decimal integer to a custom-formatted string in the specified base.
-   - Returns an empty string if the input is invalid.
+   - Returns an empty string for invalid inputs.
 
-4. equals(String n1, String n2):
-   - Tests whether two numeric strings are equal.
-- Returns true if values are equal, false otherwise.
+4. `equals(String n1, String n2)`:
+   - Compares two numeric strings for equality.
+   - Returns `true` if values are equal, `false` otherwise.
 
-5. maxIndex(String[] arr):
-   - Finds index of the maximum value from an array of numeric strings.
-   - Returns -1 for all invalid values or if the array is empty.
+5. `maxIndex(String[] arr)`:
+   - Identifies the index of the maximum value in an array of numeric strings.
+   - Returns `-1` if all values are invalid or the array is empty.
+
+6. `isValidBase(int base)`:
+   - Validates whether the base is within the accepted range (2-16).
+   - Returns `true` for valid bases, `false` otherwise.
 
 ---
+
 ## Testing
-### Ex1Test Class
-- Provides unit tests for the methods described using **JUnit** in order to guarantee the correctness and robustness of such methods.
-- The important tests are the following:
-  - Validation of conversion (isNumberTest)
-  - Base conversion (int2NumberTest)
-  - Equality checks (equalsTes)
-  - Maximum value finding (maxIndexTest)
+### `Ex1Test` Class
+- Implements unit tests using **JUnit** to ensure correctness and reliability of the methods.
+- Key tests include:
+  - `isNumberTest`: Validates whether a given string adheres to the custom numeric format.
+  - `number2IntTest`: Tests the conversion of custom-formatted strings to decimal integers.
+  - `int2NumberTest`: Verifies the conversion of decimal integers to custom-formatted strings in specified bases.
+  - `equalsTest`: Ensures the equality comparison between two numeric strings is correct.
+  - `maxIndexTest`: Tests finding the index of the maximum value in an array of numeric strings.
+  - `isValidBaseTest`: Checks whether a base is valid within the range [2-16].
 
 #### Example Test Scenarios
-1. Base 2 to base 10 conversion:
-    - Input: 1011b2 -> Output: 11
-2. Base 10 to base 3 conversion:
-    - Input: 10, 3 -> Output: 101b3
-3. Check for invalid format:
-    - Input: 1G3bG -> Output: false
-
+1. Conversion from base 2 to base 10:
+    - Input: `1011b2` -> Output: `11`
+2. Conversion from base 10 to base 3:
+    - Input: `10, 3` -> Output: `101b3`
+3. Invalid format check:
+    - Input: `1G3bG` -> Output: `false`
+4. Handling empty arrays in `maxIndex`:
+    - Input: `[]` -> Output: `-1`
 ---
- 
-## File Structure
-- Ex1.java: This is where the implementation of the number converter and calculator goes.
-- Ex1Test.java: JUnit tests for validating functionality.
-- Ex1Main.java: Running the functions threw it.
 
+## File Structure
+- `Ex1.java`: Implementation of the number converter and calculator.
+- `Ex1Test.java`: JUnit tests for validating functionality.
