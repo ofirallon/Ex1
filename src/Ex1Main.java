@@ -32,6 +32,7 @@ public class Ex1Main {
 
             boolean isNum2Valid = Ex1.isNumber(input2);
             System.out.println("input2 = " + input2 + " is number: " + isNum2Valid +
+
                     " value: " + (isNum2Valid ? Ex1.number2Int(input2) : "-1"));
 
             if (!isNum2Valid) {
