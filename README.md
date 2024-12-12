@@ -79,7 +79,8 @@ The implementation includes the class Ex1 with several static methods and unit t
 
 ---
  
-// File Structure
+## File Structure
 - Ex1.java: This is where the implementation of the number converter and calculator goes.
 - Ex1Test.java: JUnit tests for validating functionality.
+- Ex1Main.java: Running the functions threw it.
 
