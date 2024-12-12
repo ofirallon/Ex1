@@ -176,7 +176,5 @@ public class Ex1Test {
         String nullString = null; // Null input
         assertFalse(Ex1.isNumber(nullString));
 
-        // Edge Cases for maxIndex
-        String[] mixedArray = {"1b2", "1bA", "1b16"};
     }
 }
