@@ -95,3 +95,4 @@ The implementation consists of the `Ex1` class with multiple static methods and 
 ## File Structure
 - `Ex1.java`: Implementation of the number converter and calculator.
 - `Ex1Test.java`: JUnit tests for validating functionality.
+- `Ex1Main.java`: Main function, all the code runs threw it.
